@@ -3,4 +3,5 @@
 /workspace/
 /.settings/
 /.classpath
-/project
+/.project
+/bin/

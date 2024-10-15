@@ -16,8 +16,8 @@ public class AppTest {
 		
 		//등록
 		
+		/*
 		//insert
-		
 		Member mbr = new Member();
 		mbr.setMemberId("test99");
 		mbr.setMemberName("연습99");
@@ -27,22 +27,14 @@ public class AppTest {
 		if(dao.insertMember(mbr)==1){
 			sqlSession.commit();
 		}//인서트했으니 밑에서 목록 보일 것임
-		
-		/*
-		if(dao.insertMember(mbr)==1){
-			sqlSession.commit();
-		} mbr = new Member();
-		mbr.setMemberId("test99");
-		mbr.setPhone("010-8888-8888");
 		*/
 		
 		
-		/*
 		//update
 		Member mbr = new Member();
 		mbr.setMemberId("test99");
-//		mbr.setMemberName("연습99");
-//		mbr.setPhone("010-9999-9999");
+		mbr.setMemberName("연습99");
+		mbr.setPhone("010-9999-8888");
 		mbr.setPassword("9999");
 		
 		
@@ -50,7 +42,7 @@ public class AppTest {
 		if(dao.updateMember(mbr)==1){
 			sqlSession.commit();
 		}
-		*/
+		
 		
 		/*
 		//삭제
