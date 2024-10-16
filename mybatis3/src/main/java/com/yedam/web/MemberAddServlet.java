@@ -70,7 +70,8 @@ public class MemberAddServlet extends HttpServlet { // Httpservlet 을 상속받
 		member.setMemberName(name);
 		member.setPassword(password);
 		member.setPhone(phone);
-
+		
+		
 		SqlSession sqlSession = DataSource.getInstance().openSession(true); // true 시 자동커밋됨
 		MemberMapper dao = sqlSession.getMapper(MemberMapper.class);
 		try {

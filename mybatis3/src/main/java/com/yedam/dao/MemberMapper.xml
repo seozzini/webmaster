@@ -34,4 +34,18 @@
 	delete from tbl_member
 	where member_id = #{memberID}
 	</delete>
+	
+	<!--멤버매퍼 인터페이스를 구현하는 클래스 역할-->
+	<!-- 메소드이름이 ID이다, selectMember를 구현하는 것, 파라미터는 String 반환타입은 멤버타입 -->
+	<select id="selectMember" parameterType="string" resultType="com.yedam.vo.Member">
+	select member_id
+	      ,member_name
+	      ,password
+	      ,phone
+	      ,responsibility
+	      ,creation_date
+	 from tbl_member
+	 where member_id = #{memberId}
+	 </select>
+	  
 </mapper>
