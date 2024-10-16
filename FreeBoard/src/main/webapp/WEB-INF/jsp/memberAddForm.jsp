@@ -1,15 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+	
+<jsp:include page="../includes/header.jsp"></jsp:include>
+
 	<!-- 등록화면을 만들어보자 action에서 지정한 페이지로 이동함-->
 	<form action="memberAdd.do">
-		<table border='1'>
+		<table class="table">
 		<tr>
 		<th>회원ID</th><td><input type="text" name="mid"></td>
 		</tr>
@@ -23,10 +19,9 @@
 		<th>연락처</th><td><input type="text" name="phone"></td>
 		</tr>
 		<tr>
-		<td colspan='2'><input type="submit" value="저장"></td>
+		<td colspan='2' align ="center"><input type="submit" value="저장" class="btn btn-primary"></td>
 		</tr>
 		</table>
 	</form>
 
-</body>
-</html>
+<jsp:include page="../includes/footer.jsp"></jsp:include>
