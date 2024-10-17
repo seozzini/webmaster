@@ -9,7 +9,7 @@
 	<h3>회원목록</h3>
 	<%
 	List<MemberVO> list = (List<MemberVO>)request.getAttribute("memberList"); //request는 내장객체로, 멤버리스트컨트롤에서 넘겨준 값임
-	System.out.println(list);
+	//System.out.println(list);
 	%>
 	<table class="table">
 		<tbody>
