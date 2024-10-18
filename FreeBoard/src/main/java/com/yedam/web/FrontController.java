@@ -41,6 +41,9 @@ public class FrontController extends HttpServlet {
 		map.put("/modifyBoard.do", new ModifyBoardControl());//게시글 수정(수정화면->변경처리) control 요청방식에 따라 다름(get:화면열기 post:data수정)
 		map.put("/removeBoard.do", new RemoveBoardControl());//게시글 삭제
 		
+		//로그인화면
+		map.put("/loginForm.do", new LoginControl());
+		map.put("/logOut.do", new LogOutControl());
 	}
 
 	@Override
