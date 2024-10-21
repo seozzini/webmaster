@@ -56,6 +56,12 @@ if (msg != null) {
 				<td colspan="3"><textarea class="form-control" name="content" rows="3"
 						cols="30"><%=board.getContent() %></textarea></td>
 			</tr>
+			
+			<tr>
+				<th>이미지</th>
+				<td colspan="3"><input class="form-control" type="img" name="tit"
+					value="<%=board.getTitle() %>"></td>
+			</tr>
 
 			<tr>
 				<th>작성자</th>

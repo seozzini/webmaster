@@ -46,7 +46,7 @@ public class ModifyBoardControl implements Control {
 
 			if (svc.modifyBoard(board)) {
 				// 정상처리 - 목록으로 이동
-				resp.sendRedirect("boardList.do?page="+page+"&searchCondition="+sc+"&keyword="+kw);
+				resp.sendRedirect("boardList2.do?page="+page+"&searchCondition="+sc+"&keyword="+kw);
 			} else {
 				board = svc.searchBoard(Integer.parseInt(bno));
 

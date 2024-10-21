@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
 
-@WebServlet("*.do") //.do만 하면 프론트컨트롤러 실행되도록 url 지정해둠.
+// @WebServlet("*.do") //.do만 하면 프론트컨트롤러 실행되도록 url 지정해둠.
 public class FrontController extends HttpServlet {
 	
 	Map<String, Control> map; //key는 url패턴이므로 String,common에 control인터페이스만들어서 value로 control구현클래스가 밸류값!
@@ -44,6 +44,8 @@ public class FrontController extends HttpServlet {
 		//로그인화면
 		map.put("/loginForm.do", new LoginControl());
 		map.put("/logOut.do", new LogOutControl());
+		
+		map.put("/javascript.do", new JavaScriptCont());
 	}
 
 	@Override

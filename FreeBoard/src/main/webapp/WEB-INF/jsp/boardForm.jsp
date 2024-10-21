@@ -1,29 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../includes/header.jsp"></jsp:include>
 <h3>등록화면(boardForm.jsp)</h3>
 
 <!-- 등록 오류 시, msg(메세지)값 있으면 보여주고 없으면 안보여줌. -->
-<%
-String msg = (String) request.getAttribute("msg");
-String logId = (String) session.getAttribute("logId");
-%>
+<c:if test="${msg !=null}">
+<p style="color: red;">${msg}></p>
+</c:if>
 
-<%
-if (msg != null) {
-%>
-<p style="color: red;"><%=msg%></p>
-<%
-}
-%>
-<p>
 	<!-- 제목, 내용, 작성자만 있으면 됨 -->
-<form action="addBoard.do" method="get">
+<form action="addBoard.do" method="post" enctype="multipart/form-data">
 	<%
 	//post하면 파라미터가 안보임 get으로 바꿔보기
 	%>
 
-	<input class="form-control" type="hidden" name="writer" value="<%=logId%>">
+	<input class="form-control" type="hidden" name="writer" value="${logId }">
 	<table class="table">
 		<tr>
 			<th>제목</th>
@@ -34,10 +26,15 @@ if (msg != null) {
 			<th>내용</th>
 			<td><textarea class="form-control" name="content" rows="3" cols="30"></textarea></td>
 		</tr>
+		
+		<tr>
+			<th>이미지</th>
+			<td><input type="file" name="img" class="form-control"></td>
+		</tr>
 
 		<tr>
 			<th>작성자</th>
-			<td><%=logId%></td>
+			<td>${logId }</td>
 		</tr>
 
 		<tr>
