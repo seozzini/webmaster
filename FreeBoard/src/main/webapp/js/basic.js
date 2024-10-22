@@ -79,6 +79,34 @@ document.querySelectorAll('#show ul li') //[li, li, li]
 		console.log(fruit.innerHTML)
 	});
 
+/*
+<ul>
+		<li>Apple</li>
+		<li>Banana</li>
+		<!-- <li>Cherry</li> -->
+	</ul>
+	
+	<table border="1">
+		<tbody>
+			<tr>
+				<th>이름</th><td>박길동</td>
+			</tr>
+			<!--<tr>
+				<th>이름</th><td>홍길동</td>
+			</tr>-->
+		</tbody>
+	</table>
+	<table border="2">
+		<thead>
+		<tr>
+		<th>이름</th><th>나이</th>
+		</tr>
+		</thead>
+		<tbody>
+			<!-- <tr><td>홍길동</td><td>20</td></tr> -->
+		</tbody>
+	</table>
+*/
 
 
 
