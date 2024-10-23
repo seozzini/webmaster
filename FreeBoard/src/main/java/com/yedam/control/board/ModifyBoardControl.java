@@ -22,6 +22,7 @@ public class ModifyBoardControl implements Control {
 		String page = req.getParameter("page");
 		String sc = req.getParameter("searchCondition");
 		String kw = req.getParameter("keyword");
+		
 
 		BoardService svc = new BoardServiceImpl();
 

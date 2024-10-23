@@ -56,7 +56,7 @@ kw = kw == null ? "" : kw; //null 처리하기
 		<tr>
 			<td><%=board.getBoardNo()%></td>
 			<td><a
-				href='board.do?page=<%=paging.getPage()%>&bno=<%=board.getBoardNo()%>&searchCondition=<%=sc %>&keyword=<%=kw%>'><%=board.getTitle()%></a></td>
+				href='board.do?searchCondition=<%=sc %>&keyword=<%=kw%>&bno=<%=board.getBoardNo()%>&page=<%=paging.getPage()%>'><%=board.getTitle()%></a></td>
 			<td><%=board.getWriter()%></td>
 			<td><%=wdate%></td>
 			<td><%=board.getViewCnt()%></td>

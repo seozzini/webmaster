@@ -19,7 +19,7 @@ public class AppTest {
 		//svc.replyList(159).forEach(reply -> System.out.println(reply));
 		//System.out.println(svc.getReply(1));
 		
-		svc.replyList(159).forEach(reply -> System.out.println(reply));
+		//svc.replyList(159).forEach(reply -> System.out.println(reply));
 		
 		/*
 		SqlSession sqlSession = DataSource.getInstance().openSession();

@@ -30,48 +30,48 @@ if (msg != null) {
 	//post하면 파라미터가 안보임 get으로 바꿔보기
 	%>
 
-	<input type="hidden" name="bno" value="<%=board.getBoardNo() %>">
-	<input type="hidden" name="page" value="<%=pg %>">
-	<input type="hidden" name="searchCondition" value="<%=sc %>">
-	<input type="hidden" name="keyword" value="<%=kw %>">
+	<input type="hidden" name="bno" value="<%=board.getBoardNo()%>">
+	<input type="hidden" name="page" value="<%=pg%>"> <input
+		type="hidden" name="searchCondition" value="<%=sc%>"> <input
+		type="hidden" name="keyword" value="<%=kw%>">
 	<table class="table">
 
 		<tbody>
 
 			<tr>
 				<th>글번호</th>
-				<td><%=board.getBoardNo() %></td>
+				<td><%=board.getBoardNo()%></td>
 				<th>조회</th>
-				<td><%=board.getViewCnt() %></td>
+				<td><%=board.getViewCnt()%></td>
 			</tr>
 
 			<tr>
 				<th>제목</th>
-				<td colspan="3"><input class="form-control" type="text" name="title"
-					value="<%=board.getTitle() %>"></td>
+				<td colspan="3"><input class="form-control" type="text"
+					name="title" value="<%=board.getTitle()%>"></td>
 			</tr>
 
 			<tr>
 				<th>내용</th>
-				<td colspan="3"><textarea class="form-control" name="content" rows="3"
-						cols="30"><%=board.getContent() %></textarea></td>
+				<td colspan="3"><textarea class="form-control" name="content"
+						rows="3" cols="30"><%=board.getContent()%></textarea></td>
 			</tr>
-			
+
 			<tr>
 				<th>이미지</th>
-				<td colspan="3"><input class="form-control" type="img" name="tit"
-					value="<%=board.getTitle() %>"></td>
+				<td><input type="file" name="img" class="form-control"></td>
 			</tr>
 
 			<tr>
 				<th>작성자</th>
-				<td colspan="3"><%=board.getWriter() %></td>
+				<td colspan="3"><%=board.getWriter()%></td>
 			</tr>
 
 			<tr>
-				<td colspan="4" align="center">
-				<input type="submit" value="저장" <%=logId != null && logId.equals(board.getWriter()) ? "" : "disabled" %> class="btn btn-success"> 
-				<input type="reset" value="취소" class="btn btn-warning"></td>
+				<td colspan="4" align="center"><input type="submit" value="저장"
+					<%=logId != null && logId.equals(board.getWriter()) ? "" : "disabled"%>
+					class="btn btn-success"> <input type="reset" value="취소"
+					class="btn btn-warning"></td>
 			</tr>
 		</tbody>
 	</table>

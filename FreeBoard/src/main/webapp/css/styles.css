@@ -246,7 +246,7 @@ sup {
 
 a {
   color: var(--bs-link-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
   color: var(--bs-link-hover-color);
@@ -1991,8 +1991,7 @@ progress {
 }
 
 .form-control {
-  display: block;
-  width: 100%;
+  display: block;		
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   font-weight: 400;

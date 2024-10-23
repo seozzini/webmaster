@@ -5,32 +5,42 @@
 
 <mapper namespace="com.yedam.mapper.ReplyMapper">
 	<select id="selectList" parameterType="int" resultType="reply">
-		select reply_no
+		select
+		reply_no
 		,reply
 		,replyer
 		,board_no
 		,reply_date
 		from tbl_reply
-		where board_no = #{boardNo}
+		where board_no
+		= #{boardNo}
 		order by reply_no
 	</select>
-	
-		<insert id="insertReply" parameterType="reply">
-		insert into tbl_reply
-		(reply_no
-		,reply
-		,replyer
-		,board_no
-		,reply_date)
-		values (reply_seq.nextval
-		,#{reply}
-		,#{replyer}
-		,#{boardNo}
-		,#{replyDate})
+
+	<select id="selectListPaging">
+		select a.*
+		from (select /*+ INDEX_DESC (r pk_reply) */ rownum rn, r.*
+		from tbl_reply r
+		where board_no = ${bno} ) a
+		where a.rn > (${page} -1)*5
+		<![CDATA[
+		and a.rn <= ${page} * 5
+		]]>
+	</select>
+
+	<insert id="insertReply" parameterType="reply">
+		<selectKey keyProperty="replyNo" order="BEFORE"
+			resultType="int">
+			select reply_seq.nextval from dual
+		</selectKey>
+		insert into tbl_reply (reply_no ,reply ,replyer ,board_no)
+		values
+		(#{replyNo}, #{reply}, #{replyer}, #{boardNo}
+		)
 	</insert>
-	
-	
-	<delete id="deleteReply" parameterType="int">
+
+
+	<delete id="removeReply" parameterType="int">
 		delete from tbl_reply
 		where reply_no = #{replyNo}
 	</delete>
@@ -46,5 +56,12 @@
 		order by reply_no
 	</select>
 	
+	<select id="selectCount" parameterType="int">
+		select count(1)
+		from tbl_reply
+		where board_no = #{boardNo}
+	</select>
+	
+
 
 </mapper>

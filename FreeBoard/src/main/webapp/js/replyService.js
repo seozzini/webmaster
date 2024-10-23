@@ -3,17 +3,45 @@
  * 메소드: 목록, 등록, 삭제
  */
 
- const svc = {
-	 rlist(bno = 1, successFnc, errorFnc){ // 댓글목록. (원본글을 파라미터로)
-		 // Ajax 호출
-		 fetch('replyList.do?bno='+bno)
-		 .then(resolve => resolve.json())
-		 .then(successFnc)
-		 .catch(errorFnc)
-	 },
-	 /*
-	 showMsg(msg){
-		 console.log(msg);
-	 }
-	 */
- }
+const svc = {
+	// 1.목록
+	rlist(param = { bno, page }, successFnc, errorFnc) { // 댓글목록. (원본글을 파라미터로)
+		// Ajax 호출
+		fetch('replyList.do?bno=' + param.bno + '&page=' + param.page)
+			.then(resolve => resolve.json())
+			.then(successFnc)
+			.catch(errorFnc)
+	},
+	/*
+	showMsg(msg){
+		console.log(msg);
+	}
+	*/
+
+	// 2.삭제
+	removeReply(rno = 1, successFnc, errorFnc) {
+		// Ajax 호출
+		fetch('removeReply.do?rno=' + rno)
+			.then(resolve => resolve.json())
+			.then(successFnc)
+			.catch(errorFnc)
+	},
+
+	// 3.추가
+	addReply(param = { bno, reply, replyer }, successFnc, errorFnc) {
+		// Ajax 호출
+		fetch('addReply.do?bno=' + param.bno + '&reply=' + param.reply + '&replyer=' + param.replyer)
+			.then(resolve => resolve.json())
+			.then(successFnc)
+			.catch(errorFnc)
+	},
+
+	// 4. 댓글카운트.
+	getReplyCount(bno = 1, successFnc, errorFnc) {
+		// Ajax 호출
+		fetch('replyCount.do?bno=' + bno)
+			.then(resolve => resolve.json())
+			.then(successFnc)
+			.catch(errorFnc)
+	}
+}
