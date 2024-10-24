@@ -1,9 +1,11 @@
 package com.yedam.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.yedam.common.SearchDTO;
 import com.yedam.vo.BoardVO;
+import com.yedam.vo.CalendarVO;
 
 public interface BoardMapper {
 	// 글목록 가져오기.
@@ -21,5 +23,12 @@ public interface BoardMapper {
 	int updateCount(int boardNo);
 	// 페이징 계산 건수체크
 	int selectCount(SearchDTO search);
+	//사용자별 게시글작성건수.
+	List<Map<String, Object>> countByWriter();
+	// 캘린더.일정조회
+	List<Map<String, Object>> selectEvent();
+	// 일정등록.
+	int insertEvent(Map<String, String> map);
+	int delEvent(Map<String,String> map);
 
 }

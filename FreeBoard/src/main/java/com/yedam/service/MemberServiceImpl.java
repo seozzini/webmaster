@@ -35,4 +35,6 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO loginCheck(String id, String pw) {
 		return mapper.loginMember(id, pw);
 	}
+	
+	
 }

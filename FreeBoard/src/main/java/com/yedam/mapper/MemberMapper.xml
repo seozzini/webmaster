@@ -56,5 +56,15 @@
 	 and password = #{pw}
 	 
 	 </select>
+	 
+	 <select id="selectEvent" useCache="false" resultType="map">
+		select title as "title"
+		, start_date as "start"
+		, end_date as "end"
+		from tbl_event
+	</select>
+	 
+	 
+	
 	  
 </mapper>

@@ -19,9 +19,9 @@
 	<select id="listWithPage"
 		parameterType="com.yedam.common.SearchDTO">
 		select b.*
-		from  (select rownum rn, a.*
-		       from ( select *
-		              from tbl_board
+		from (select rownum rn, a.*
+		from ( select *
+		from tbl_board
 		<where>
 			<choose>
 				<when test="searchCondition == 'T'.toString() ">
@@ -31,7 +31,8 @@
 					writer like '%'||#{keyword}||'%'
 				</when>
 				<when test="searchCondition == 'TW'.toString()">
-					(title like '%'||#{keyword}||'%') or (writer like '%'||#{keyword}||'%')
+					(title like '%'||#{keyword}||'%') or (writer like
+					'%'||#{keyword}||'%')
 				</when>
 			</choose>
 		</where>
@@ -56,7 +57,7 @@
 		,#{writer}
 		,#{img})
 	</insert>
-	
+
 
 	<update id="updateBoard" parameterType="board">
 		update tbl_board
@@ -110,11 +111,40 @@
 					writer like '%'||#{keyword}||'%'
 				</when>
 				<when test="searchCondition == 'TW'.toString()">
-					(title like '%'||#{keyword}||'%') or (writer like '%'||#{keyword}||'%')
+					(title like '%'||#{keyword}||'%') or (writer like
+					'%'||#{keyword}||'%')
 				</when>
 			</choose>
 		</where>
 	</select>
+
+	<select id="countByWriter" resultType="hashmap">
+		select writer as "writer",
+		member_name as "member_name", count(1) as "count"
+		from tbl_board b
+		join
+		tbl_member m
+		on b.writer = m.member_id
+		group by writer, member_name
+	</select>
+
+	<select id="selectEvent" resultType="map">
+		select title as "title"
+		,start_date as "start"
+		,end_date as "end"
+		from tbl_event
+	</select>
+	
+	<insert id="insertEvent" parameterType="hashmap">
+		insert into tbl_event (title, start_date, end_date)
+		values (#{title} ,#{start} ,#{end})  <!-- key에 해당되는값넣기 -->
+	</insert>
+	
+	<delete id="delEvent" parameterType="hashmap">
+	delete from tbl_event
+	where title=#{title} and start_date=#{start} and end_date=#{end}
+	</delete>
+	
 
 
 </mapper>

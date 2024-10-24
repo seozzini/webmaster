@@ -19,5 +19,7 @@ public interface MemberMapper {
 		// 아이디&비밀번호 조회기능
 		public MemberVO loginMember(@Param("id") String id, @Param("pw") String pw);
 		
+		
+		
 	}
 
