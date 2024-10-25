@@ -11,11 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
-import com.yedam.control.AddEventCont;
 import com.yedam.control.CalendarCont;
 import com.yedam.control.ChartControl;
 import com.yedam.control.CountWriterCont;
 import com.yedam.control.EventControl;
+import com.yedam.control.Exe1Control;
+import com.yedam.control.Exe2Control;
 import com.yedam.control.JavaScriptCont;
 import com.yedam.control.board.AddBoardControl;
 import com.yedam.control.board.AddBoardFrom;
@@ -90,6 +91,11 @@ public class FrontController extends HttpServlet {
 		map.put("/eventList.do", new EventControl());
 		map.put("/addEvent.do", new EventControl());
 		
+		// exe1.
+		map.put("/exe1.do", new Exe1Control());
+		
+		// exe2.
+		map.put("/exe2.do", new Exe2Control());
 	}
 
 	@Override

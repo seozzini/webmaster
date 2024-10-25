@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="dist/index.global.js"></script>
-    <script type="text/javascript">
+<head>
+<script src="dist/index.global.js"></script>
+<script type="text/javascript">
+      let modalArg = null; //arg 공유할 목적.
+      let calendar = null; //calendarModal.js 에서 접근가능하도록
+      
       document.addEventListener('DOMContentLoaded', async function () {
         var calendarEl = document.getElementById('calendar');
-        var today = new Date();
-        var date = new Date();
+        var today = new Date(); 	
 
         //var eventDate =[];//
 
@@ -24,7 +26,7 @@ pageEncoding="UTF-8"%>
         // .catch (err => console.log(err));
         console.log(result);
 
-        var calendar = new FullCalendar.Calendar(calendarEl, {
+         calendar = new FullCalendar.Calendar(calendarEl, {
           headerToolbar: {
             left: 'prev,next today',
             center: 'title',
@@ -35,9 +37,12 @@ pageEncoding="UTF-8"%>
           selectable: true,
           selectMirror: true,
           select: function (arg) {
-            var title = prompt('Event Title:');
-            if (title) {
+        	  
+            //var title = prompt('Event Title:');
+            //if (title) {
+        	  modalShow(arg);
               console.log(arg); //start,end 값 들어있음
+              /*
               let start = eventDate(arg.startStr, arg.allDay);
               let end = eventDate(arg.endStr, arg.allDay);
               fetch(
@@ -59,7 +64,9 @@ pageEncoding="UTF-8"%>
                   // title, start, end 값.
                   // 화면에 출력.
                 }); // 화면출력.
-            }
+              */ 
+          //  }
+            
             calendar.unselect();
           },
           eventClick: function (arg) {
@@ -93,39 +100,55 @@ pageEncoding="UTF-8"%>
         calendar.render(); // 화면출력.
       });
 
-      function eventDate(date, allDay) {
-        // true = yyyy-mm-dd
-        // false = yyyy-mm-ddThh:,
-        if (!allDay) {
-          let year = date.getFullYear(); 
-          let month = date.getMonth();
-          let day = date.getDate();
-          let hour = date.getHours();
-          let min = date.getMinutes();
-          let sec = date.getSeconds();
-
-          return (
-            year + '-' + month + '-' + day + 'T' + hour + ':' + min + ':' + sec
-          );
-        }
-        return date;
-      }
+      
     </script>
-    <style>
-      body {
-        margin: 40px 10px;
-        padding: 0;
-        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-        font-size: 14px;
-      }
+<style>
+body {
+	padding: 0;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-size: 14px;
+}
 
-      #calendar {
-        max-width: 1100px;
-        margin: 0 auto;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="calendar"></div>
-  </body>
+#calendar {
+	max-width: 1100px;
+	margin: 0 auto;
+}
+</style>
+</head>
+<body>
+	<div id="calendar"></div>
+
+	<!-- 모달창 열기 -->
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+		data-bs-target="#exampleModal">Launch demo modal</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Modal
+						title</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close" onclick="modalClose()"></button>
+				</div>
+				<div class="modal-body">
+					<!-- title, startStr, endStr -->
+					타이틀: <input type="text" id="title"><br>
+				    시작일시: <input type="date" onchange="startChange(event)" id="start"><br> 
+				    종료일시: <input type="date" onchange="endChange(event)" id="end">
+				</div>
+				<div class="modal-footer">	
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal" onclick="modalClose()">Close</button>
+					<button type="button" class="btn btn-primary" onclick="modalSave()">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/calendarModal.js"></script>
+</body>
 </html>
