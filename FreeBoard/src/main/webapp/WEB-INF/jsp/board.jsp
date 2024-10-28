@@ -138,5 +138,7 @@ kw = kw == null ? "" : kw; //null 처리하기
 	});
 </script>
 
-<script src="js/replyService.js"></script>
-<script src="js/reply.js"></script>
+<!-- <script src="js/replyService.js"></script> -->
+<!--<script src="js/reply.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/jreply.js"></script>
