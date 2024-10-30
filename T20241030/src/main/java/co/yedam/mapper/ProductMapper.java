@@ -10,6 +10,8 @@ public interface ProductMapper {
 	
 	public List<ProductVO> prodList();
 	
-	public ProductVO selectProd(String prdName);
+	public List<ProductVO> prodListTop4();
+	
+	public ProductVO selectProd(String prodCode);
 
 }

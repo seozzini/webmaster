@@ -16,16 +16,18 @@ public class ProductControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		//System.out.println("ProductControl");
 		String code = req.getParameter("prdCode");
 		
 		ProductService svc = new ProductServiceImpl();
-		List<ProductVO> product = svc.prodList();
+		List<ProductVO> product = svc.prodListTop4();
+		ProductVO pvo = svc.selectProd(code);
 		
+		//System.out.println(product.toString());
 		req.setAttribute("productvo", product);
-		req.setAttribute("prdCode", code);
+		req.setAttribute("prdCode", pvo);
 		//오픈할페이지 설정
-		req.getRequestDispatcher("product/productList.tiles").forward(req, resp);
+		req.getRequestDispatcher("product/productInfo.tiles").forward(req, resp);
 
 	}
 

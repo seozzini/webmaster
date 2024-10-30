@@ -11,6 +11,9 @@ public interface ProductService {
 	//전체 목록
 	List<ProductVO> prodList();
 	
+	//TOP4
+	List<ProductVO> prodListTop4();
+	
 	//상세
 	ProductVO selectProd(String prodCode);
 	

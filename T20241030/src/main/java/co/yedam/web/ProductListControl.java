@@ -17,7 +17,7 @@ public class ProductListControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		System.out.println("ProductListControl");
+		//System.out.println("ProductListControl");
 		ProductService svc = new ProductServiceImpl();
 		List<ProductVO> list = svc.prodList();
 		System.out.println(list.toString());
