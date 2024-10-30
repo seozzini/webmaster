@@ -9,7 +9,7 @@
 	</select>
 
 	<insert id="insertMember" parameterType="member">
-		insert into tbl_member(member_id,member_name,password,phone)
+		insert into tbl_member(member_id,member_n eame,password,phone)
 		values(#{memberId},#{memberName},#{password},#{phone})
 	</insert>
 	<!--반환되는 값이 정해져있음 int 안적어도됨 -->
